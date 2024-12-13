@@ -23,7 +23,9 @@ int main() {
 		getchar();
 
 		if (strcmp(nome, "END") == 0) {
-			print_Scoreboard();
+			if (numero_giocatori >=1) {
+				print_Scoreboard();
+			}
 			return 0;
 		}
 
