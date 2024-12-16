@@ -19,7 +19,7 @@ int main() {
 
 	do {
 		printf("Prima di cominciare, inserisci il tuo nome (max. 50 caratteri, END per chiudere):\n");
-		scanf("%50s", nome);
+		scanf("%49s", nome);
 		getchar();
 
 		if (strcmp(nome, "END") == 0) {
