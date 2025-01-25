@@ -18,42 +18,30 @@ int main () {
     dice_roll1= rand()%10 +1;
     dice_roll2= rand()%10 +1;
     switch (dice_roll1) {
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 5: 
+        case 1: ... 5:
             posizione_tartaruga=posizione_tartaruga+3;
             break;
-        case 6:
-        case 7: 
+        case 6 ... 7:
             posizione_tartaruga=posizione_tartaruga-6;
             break;
-        case 8:
-        case 9:
-        case 10: 
+        case 8 ... 10: 
             posizione_tartaruga=posizione_tartaruga+1;
             break;
     }
 
     switch (dice_roll2) {
-        case 1:
-        case 2: 
+        case 1 ... 2:
                 break;
-        case 3:
-        case 4: 
+        case 3 ... 4:
             posizione_lepre=posizione_lepre+9;
             break;
         case 5: 
             posizione_lepre=posizione_lepre-12;
             break;
-        case 6:
-        case 7:
-        case 8: 
+        case 6 ... 8:
             posizione_lepre=posizione_lepre+1;
             break;
-        case 9:
-        case 10:
+        case 9 ... 10:
             posizione_lepre=posizione_lepre-2;
             break;
         
