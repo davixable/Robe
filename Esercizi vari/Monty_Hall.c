@@ -1,6 +1,7 @@
 /*Simulazione del problema di Monty Hall*/
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main() {
 	int tentativi=1000,porta_scelta1, porta_scelta2, porta_giusta, porta_rimossa, vincita_con_cambio=0, vincita_senza_cambio=0;
