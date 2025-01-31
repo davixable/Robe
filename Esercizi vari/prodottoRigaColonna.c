@@ -1,4 +1,6 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
+﻿//uno dei miei primi esercizi fatti lol
+
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main() {
@@ -55,8 +57,6 @@ int main() {
 		}
 		printf("\n");
 	}
-
-
-
+	
 	return 0;
 }
