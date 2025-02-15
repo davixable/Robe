@@ -22,6 +22,7 @@ void addGrades(Student *student);
 void printIDs(Student students[]);
 void printInfo(Student students[]);
 void printSingleInfo(Student *student);
+void deleteStudent(Student students[]);
 float getGrade();
 int getID();
 void clearBuffer();
@@ -140,13 +141,32 @@ int getID(){
     return ID;
 }
 
+void deleteStudent(Student students[]){
+    if (students_num==0){
+        printf("Non sono presenti studenti nel registro.\n");
+        return;
+    }
+    printf("################\nMenu' di cancellazione dati.\n");
+    printIDs(students);
+    int ID=getID();
+    for (int i=0;i<students_num-1;i++){
+        if (i>=ID){
+            students[i]=students[i+1];
+            students[i].ID=i;
+        }
+    }
+    students_num--;
+    printf("Studente eliminato con successo. Torno al menu' principale..\n");
+}
+
 int main (){
     Student students[MAX_STUDENTS];
     int choice,ID;
     printf("Benvenuti nel registro di classe.\n");
     while(1){
         printf("##########################################\n");
-        printf("Cosa desideri fare?\nPremi 1 per aggiungere uno studente, 2 per modificare i voti, 3 per mostrare info studente, 4 per mostrare info di tutti gli studenti o 5 per uscire.\n");
+        printf("Cosa desideri fare?\nPremi:\n1. per aggiungere uno studente\n2. per modificare i voti\n3. per mostrare info studente");
+        printf("\n4. per mostrare info di tutti gli studenti\n5. per eliminare i dati di uno studente\n6. per uscire\n");
         scanf("%d", &choice);
         clearBuffer();
         switch (choice){
@@ -174,6 +194,9 @@ int main (){
             printInfo(students);
             break;
         case 5:
+            deleteStudent(students);
+            break;
+        case 6:
             printf("Uscita in corso...\n");
             return 0;
         default:
