@@ -1,8 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#define MAX_STUDENTS 100
-#define MAX_NAME_LENGTH 30
+#define MAX_NAME_LENGTH 40
 
 int students_num=0;
 
@@ -17,12 +16,12 @@ typedef struct{
 } Student;
 
 
-void addStudent(Student *student);
+void addStudent(Student **student);
 void addGrades(Student *student);
-void printIDs(Student students[]);
-void printInfo(Student students[]);
+void printIDs(Student **student);
+void printInfo(Student **student);
 void printSingleInfo(Student *student);
-void deleteStudent(Student students[]);
+void deleteStudent(Student **student);
 float getGrade();
 int getID();
 void clearBuffer();
@@ -31,7 +30,13 @@ void clearBuffer(){
     while (getchar() != '\n');
 }
 
-void addStudent(Student *student){
+void addStudent(Student **students){
+    *students=realloc(*students, (students_num+1) * sizeof(Student));
+    if (*students == NULL) {
+        printf("La tua memoria e' piena, non e' possibile aggiungere studenti.\n");
+        exit(1);
+    }
+    Student *student=&(*students)[students_num];
     student->ID=students_num;
     printf("Inserisci nome studente:");
     fgets(student->name,MAX_NAME_LENGTH,stdin);
@@ -59,6 +64,8 @@ void addStudent(Student *student){
     if (choice==1){
         addGrades(student);
     }
+    students_num++;
+    printf("Studente aggiunto con successo!\n");
 }
 
 void addGrades(Student *student){
@@ -94,22 +101,22 @@ float getGrade(){
     return grade;
 }
 
-void printIDs(Student students[]){
+void printIDs(Student **student){
     for (int i=0;i<students_num;i++){
-        printf("ID:%d\tNome:%s\n", students[i].ID, students[i].name);
+        printf("ID:%d\tNome:%s\n", (*student)[i].ID, (*student)[i].name);
     }
 }
 
-void printInfo(Student students[]){
+void printInfo(Student **students){
     for (int i=0;i<students_num;i++){
     printf("##########################################\n");
     printf("ID:%d\tNome:%s\tEta':%d\t\tSesso:%c\n", 
-    students[i].ID, students[i].name, students[i].age, students[i].gender);
+    (*students)[i].ID, (*students)[i].name, (*students)[i].age, (*students)[i].gender);
     printf("\n\t\t\tVOTI\t\t\t\n\n");
     printf("Matematica: %.2f\nStoria: %.2f\nGeografia: %.2f\nItaliano: %.2f\nInglese: %.2f\n", 
-    students[i].grades.math, students[i].grades.history, students[i].grades.geography,students[i].grades.italian, students[i].grades.english);
-    float avg=(students[i].grades.math+students[i].grades.history+students[i].grades.geography+students[i].grades.italian+students[i].grades.english)/5;
-    printf("\n%s ha la media del %.2f\n\n", students[i].name, avg);
+    (*students)[i].grades.math, (*students)[i].grades.history, (*students)[i].grades.geography,(*students)[i].grades.italian, (*students)[i].grades.english);
+    float avg=((*students)[i].grades.math+(*students)[i].grades.history+(*students)[i].grades.geography+(*students)[i].grades.italian+(*students)[i].grades.english)/5;
+    printf("\n%s ha la media del %.2f\n\n", (*students)[i].name, avg);
     }
 }
 
@@ -141,7 +148,7 @@ int getID(){
     return ID;
 }
 
-void deleteStudent(Student students[]){
+void deleteStudent(Student **students){
     if (students_num==0){
         printf("Non sono presenti studenti nel registro.\n");
         return;
@@ -151,16 +158,17 @@ void deleteStudent(Student students[]){
     int ID=getID();
     for (int i=0;i<students_num-1;i++){
         if (i>=ID){
-            students[i]=students[i+1];
-            students[i].ID=i;
+            (*students)[i]=(*students)[i+1];
+            (*students)[i].ID=i;
         }
     }
     students_num--;
+    *students = realloc(*students, students_num * sizeof(Student));
     printf("Studente eliminato con successo. Torno al menu' principale..\n");
 }
 
 int main (){
-    Student students[MAX_STUDENTS];
+    Student *students=NULL;
     int choice,ID;
     printf("Benvenuti nel registro di classe.\n");
     while(1){
@@ -170,34 +178,30 @@ int main (){
         scanf("%d", &choice);
         clearBuffer();
         switch (choice){
-        case 1: 
-            if(students_num==MAX_STUDENTS){
-            printf("Limite di studenti raggiunto.\n");
-            break;
-            }
-            addStudent(&students[students_num]);
-            students_num++;
+        case 1:
+            addStudent(&students);
             break;
         case 2: 
-            printIDs(students);
+            printIDs(&students);
             ID=getID();
             printf("\n");
             addGrades(&students[ID]);
             break;
         case 3:
-            printIDs(students);
+            printIDs(&students);
             ID=getID();
             printf("\n");
             printSingleInfo(&students[ID]);
             break;
         case 4:
-            printInfo(students);
+            printInfo(&students);
             break;
         case 5:
-            deleteStudent(students);
+            deleteStudent(&students);
             break;
         case 6:
             printf("Uscita in corso...\n");
+            free(students);
             return 0;
         default:
             printf("Scelta non valida.\n");
