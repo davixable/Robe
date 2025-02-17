@@ -75,4 +75,5 @@ int main (){
     printf("Quanti alunni vuoi generare?\n");
     scanf("%d",&n);
     spawnStudents(n);
+    printf("Alunni generati con successo!\n");
 }
