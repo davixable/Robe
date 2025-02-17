@@ -24,6 +24,7 @@ void printSingleInfo(Student *student);
 void deleteStudent(Student **student);
 void saveToFile(Student *students);
 void loadFromFile(Student **students);
+int menuStart();
 float getGrade();
 int getID();
 void clearBuffer();
@@ -147,6 +148,7 @@ int getID(){
         }
         break;
     }
+    printf("\n");
     return ID;
 }
 
@@ -216,18 +218,23 @@ void loadFromFile(Student **students) {
     printf("Registro caricato con successo!\n");
 }
 
-
+int menuStart(){
+    int choice;
+    printf("##########################################\n");
+    printf("Cosa desideri fare?\nPremi:\n1. per aggiungere uno studente\n2. per modificare i voti\n3. per mostrare info studente");
+    printf("\n4. per mostrare info di tutti gli studenti\n5. per eliminare i dati di uno studente\n6. per uscire\n");
+    scanf("%d", &choice);
+    clearBuffer();
+    return choice;
+}
+    
 int main (){
     Student *students=NULL;
     int choice,ID;
     loadFromFile(&students);
     printf("Benvenuti nel registro di classe.\n");
     while(1){
-        printf("##########################################\n");
-        printf("Cosa desideri fare?\nPremi:\n1. per aggiungere uno studente\n2. per modificare i voti\n3. per mostrare info studente");
-        printf("\n4. per mostrare info di tutti gli studenti\n5. per eliminare i dati di uno studente\n6. per uscire\n");
-        scanf("%d", &choice);
-        clearBuffer();
+        choice=menuStart();
         switch (choice){
         case 1:
             addStudent(&students);
@@ -235,13 +242,11 @@ int main (){
         case 2: 
             printIDs(&students);
             ID=getID();
-            printf("\n");
             addGrades(&students[ID]);
             break;
         case 3:
             printIDs(&students);
             ID=getID();
-            printf("\n");
             printSingleInfo(&students[ID]);
             break;
         case 4:

@@ -1,0 +1,101 @@
+50
+0 Pietro Testa
+5 M 4.00 8.50 7.00 3.50 9.50
+1 Giulia Crispino
+5 F 4.50 4.50 7.50 7.00 2.50
+2 Vanessa Caruso
+5 F 4.50 4.00 3.50 5.50 8.00
+3 Federica Costa
+13 F 7.50 8.50 8.50 4.50 8.00
+4 Monica Basili
+6 F 8.00 10.00 8.00 3.00 3.00
+5 Samuele Giordano
+14 M 7.50 9.50 8.50 5.50 7.00
+6 Luca Bernardi
+13 M 3.00 3.00 4.00 9.50 5.50
+7 Ivan Piazza
+10 M 4.50 6.00 8.00 8.00 8.50
+8 Valentina Sanna
+10 F 6.00 6.50 6.00 9.00 5.50
+9 Veronica Longo
+11 F 5.00 10.00 5.50 9.50 6.00
+10 Marina Conti
+6 F 3.00 2.00 9.00 5.00 4.50
+11 Stefania Longo
+9 F 3.50 2.00 7.00 8.00 2.00
+12 Giorgia Pagano
+14 F 2.00 6.00 3.50 2.00 10.00
+13 Leonardo Farina
+10 M 9.50 7.50 9.50 3.00 8.00
+14 Flavia Pellegrini
+14 F 2.50 4.50 5.50 2.50 6.00
+15 Giovanni Sorrentino
+5 M 6.50 3.00 6.00 3.00 4.00
+16 Sara Greco
+14 F 7.00 9.00 9.50 5.00 9.50
+17 Veronica Fontana
+12 F 7.50 4.50 4.50 8.00 10.00
+18 Andrea Palmieri
+12 M 6.00 3.50 6.50 4.00 9.50
+19 Valerio Rinaldi
+14 M 4.50 2.50 3.00 5.50 7.00
+20 Federica Piras
+6 F 9.00 5.00 4.50 5.50 2.00
+21 Alberto Conti
+11 M 4.00 2.00 6.50 9.50 2.50
+22 Massimo Fiore
+10 M 7.50 5.50 9.00 2.00 8.00
+23 Giulia Landi
+9 F 7.50 3.00 8.00 7.50 6.50
+24 Marina Grassi
+12 F 8.50 7.00 6.50 8.00 10.00
+25 Eleonora Gentile
+13 F 3.00 3.00 6.50 5.00 9.50
+26 Renata Riva
+11 F 2.50 8.00 9.50 2.00 3.50
+27 Ester D'Amico
+5 F 2.50 5.00 4.00 7.00 6.00
+28 Lucia Fontana
+13 F 7.00 2.00 6.00 8.00 9.00
+29 Salvatore Donati
+5 M 4.50 8.50 9.50 3.00 2.50
+30 Marco Crispino
+7 M 4.50 10.00 7.00 5.00 4.00
+31 Sara Russo
+7 F 10.00 9.00 9.50 2.50 3.00
+32 Anna Monti
+7 F 2.50 6.50 5.00 10.00 7.00
+33 Christian Costa
+5 M 3.50 8.50 8.00 10.00 9.00
+34 Samuele Moretti
+10 M 10.00 9.00 2.00 5.00 7.00
+35 Vincenzo De Vito
+12 M 3.50 5.50 5.50 2.50 4.00
+36 Aurora Greco
+7 F 6.00 2.50 8.00 3.00 8.50
+37 Eleonora Santoro
+12 F 3.50 3.00 2.00 3.00 4.50
+38 Francesco Mattioli
+6 M 6.00 3.50 7.00 3.50 8.00
+39 Benedetto Neri
+11 M 6.00 6.00 6.50 3.50 6.50
+40 Lucia Romagnoli
+8 F 2.00 4.50 5.00 4.00 9.50
+41 Anna Rossi
+10 F 5.50 2.00 3.50 4.00 3.50
+42 Marta Grassi
+10 F 4.50 6.50 3.50 8.50 8.00
+43 Nadia Bianchi
+12 F 9.00 4.50 5.00 5.50 4.00
+44 Renata De Rosa
+10 F 6.50 9.00 4.00 5.00 7.50
+45 Vincenzo Russo
+10 M 4.50 7.50 2.50 7.00 5.00
+46 Tommaso Marchetti
+6 M 7.00 3.00 9.00 9.50 8.50
+47 Alessia Pellegrini
+14 F 8.00 2.50 7.00 7.00 6.00
+48 Marta Landi
+9 F 5.00 8.00 6.50 6.50 4.50
+49 Alessia Marino
+11 F 8.00 7.50 4.00 10.00 2.50
