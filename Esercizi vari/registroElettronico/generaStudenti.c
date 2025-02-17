@@ -50,14 +50,14 @@ void spawnStudents(int n){
    }
     fprintf(file, "%d",n);
     for (int i=0; i<n;i++){
-        int gender =rand()%2; //0 = male , 1=female
+        int gender = rand() % 2; //0 = male , 1=female
         char student_gender;
         char name[20];
         char last_name[20];
-        if (gender==0) {
+        if (gender == 0) {
             student_gender='M';
             strcpy(name, male_names[rand()%50]);
-        } else{
+        } else {
             student_gender='F';
             strcpy(name, female_names[rand()%50]);
         }
@@ -71,9 +71,9 @@ void spawnStudents(int n){
 
 int main (){
     srand(time(NULL));
-    int n;
+    int n=-1;
     printf("Quanti alunni vuoi generare?\n");
-    scanf("%d",&n);
+    scanf("%d", &n);
     spawnStudents(n);
     printf("Alunni generati con successo!\n");
 }
