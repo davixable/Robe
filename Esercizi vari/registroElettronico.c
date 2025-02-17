@@ -22,6 +22,8 @@ void printIDs(Student **student);
 void printInfo(Student **student);
 void printSingleInfo(Student *student);
 void deleteStudent(Student **student);
+void saveToFile(Student *students);
+void loadFromFile(Student **students);
 float getGrade();
 int getID();
 void clearBuffer();
@@ -167,9 +169,58 @@ void deleteStudent(Student **students){
     printf("Studente eliminato con successo. Torno al menu' principale..\n");
 }
 
+void saveToFile(Student *students) {
+    FILE *file = fopen("registro.txt", "w");
+    if (file == NULL) {
+        printf("Errore nell'apertura del file.\n");
+        return;
+    }
+
+    fprintf(file, "%d\n", students_num);
+
+    for (int i = 0; i < students_num; i++) {
+        fprintf(file, "%d %s\n%d %c %.2f %.2f %.2f %.2f %.2f\n", 
+                students[i].ID, students[i].name, students[i].age, students[i].gender,
+                students[i].grades.math, students[i].grades.history, students[i].grades.geography,
+                students[i].grades.italian, students[i].grades.english);
+    }
+
+    fclose(file);
+    printf("Registro salvato con successo!\n");
+}
+
+void loadFromFile(Student **students) {
+    FILE *file = fopen("registro.txt", "r");
+    if (file == NULL) {
+        printf("Creazione di un nuovo registro...\n");
+        return;
+    }
+
+    fscanf(file, "%d\n", &students_num); 
+    *students = malloc(students_num * sizeof(Student));
+
+    for (int i = 0; i < students_num; i++) {
+        fscanf(file, "%d", &(*students)[i].ID);
+        fgets((*students)[i].name, MAX_NAME_LENGTH, file);
+        (*students)[i].name[strcspn((*students)[i].name, "\n")] = '\0';
+        if ((*students)[i].name[0] == ' ') {
+        memmove((*students)[i].name, (*students)[i].name + 1, strlen((*students)[i].name));
+    }
+        fscanf(file, "\n%d %c ", &(*students)[i].age, &(*students)[i].gender);
+
+        fscanf(file, "%f %f %f %f %f\n", &(*students)[i].grades.math, &(*students)[i].grades.history, 
+               &(*students)[i].grades.geography, &(*students)[i].grades.italian, &(*students)[i].grades.english);
+    }
+
+    fclose(file);
+    printf("Registro caricato con successo!\n");
+}
+
+
 int main (){
     Student *students=NULL;
     int choice,ID;
+    loadFromFile(&students);
     printf("Benvenuti nel registro di classe.\n");
     while(1){
         printf("##########################################\n");
@@ -200,6 +251,7 @@ int main (){
             deleteStudent(&students);
             break;
         case 6:
+            saveToFile(students);
             printf("Uscita in corso...\n");
             free(students);
             return 0;
