@@ -93,22 +93,18 @@ int main(){
     printf("\n\n");
 
     start=clock();
+/*
     mergeSort(arr, 0, size-1);
-    printf("Array dopo aver usato mergeSort:\n");
-     for (int i=0;i<size;i++){
-        printf("%d ", arr[i]);
-    } 
-/*   bubbleSort(arr, size);
-   printf("Array dopo aver usato bubbleSort:\n");
-     for (int i=0;i<size;i++){
-        printf("%d ", arr[i]);
-    } */
-/*    insertionSort(arr, size);
+    printf("Array dopo aver usato mergeSort:\n"); 
+    bubbleSort(arr, size);
+    printf("Array dopo aver usato bubbleSort:\n");
+    insertionSort(arr, size);
     printf("Array dopo aver usato insertionSort:\n");
-     for (int i=0;i<size;i++){
-        printf("%d ", arr[i]);
-    } */
+*/
     end=clock();
+    for (int i=0;i<size;i++){
+        printf("%d ", arr[i]);
+    }
     printf("\n\n");
 
     int ordinato=1;
