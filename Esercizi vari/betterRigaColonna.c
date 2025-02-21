@@ -60,7 +60,7 @@ int** createMatrix (int row, int col)
     int **matrix=NULL;
     matrix=malloc(row*sizeof(int*));
     for (int i=0;i<row;i++) {
-        matrix[i]=malloc(col*sizeof(int));
+        matrix[i]=calloc(col*sizeof(int));
     }
     return matrix;
 }
