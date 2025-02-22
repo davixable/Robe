@@ -2,7 +2,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <unistd.h>
 #define N 8
 
@@ -113,7 +112,6 @@ void printBoard(){
 }
 
 int main (){
-    srand(time(NULL));
     initializeBoard();
     int moves_count=1, x, y;
     printf("Inserisci coordinate iniziali (x,y):\n");
