@@ -37,7 +37,7 @@ void addStudent(Student **students){
     *students=realloc(*students, (students_num+1) * sizeof(Student));
     if (*students == NULL) {
         printf("La tua memoria e' piena, non e' possibile aggiungere studenti.\n");
-        return 1;
+        exit(1);
     }
     Student *student=&(*students)[students_num];
     student->ID=students_num;
