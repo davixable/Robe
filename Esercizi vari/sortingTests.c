@@ -6,6 +6,9 @@ void mergeSort(int *arr, int l, int r);
 void merge(int *arr, int l, int m, int r);
 void bubbleSort(int *arr, int size);
 void insertionSort(int *arr, int size);
+void quickSort(int *arr, int l, int r);
+int partition(int *arr, int l, int r);
+void swap(int *a, int *b);
 
 void mergeSort(int *arr, int l, int r){
     if (l<r){
@@ -78,6 +81,34 @@ void insertionSort(int *arr, int size){
     }
 }
 
+void quickSort(int *arr, int l, int r){
+    if(l<r){
+        int pi = partition(arr, l, r);
+        quickSort(arr, l, pi-1);
+        quickSort(arr, pi+1, r);
+    }
+}
+
+int partition(int *arr, int l, int r){
+    int pivot = arr[r];
+    int i=l-1;
+
+    for(int j=l;j<r;j++){
+        if(pivot>arr[j]){
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i+1], &arr[r]);
+    return i+1;
+}
+
+void swap(int *a, int *b){
+    int temp=*a;
+    *a=*b;
+    *b=temp;
+}
+
 int main(){
     clock_t start, end;
     srand(time(NULL));
@@ -100,6 +131,8 @@ int main(){
     printf("Array dopo aver usato bubbleSort:\n");
     insertionSort(arr, size);
     printf("Array dopo aver usato insertionSort:\n");
+    quickSort(arr, 0, size-1);
+    printf("Array dopo aver usato quickSort:\n");
 */
     end=clock();
     for (int i=0;i<size;i++){
