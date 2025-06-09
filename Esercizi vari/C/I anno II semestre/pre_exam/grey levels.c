@@ -1,5 +1,5 @@
 /*
-simulazione immagine con livelli di grigio
+simulazione: immagine con livelli di grigio
 */
 
 #include <stdio.h>
